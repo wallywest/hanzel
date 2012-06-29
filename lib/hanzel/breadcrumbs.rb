@@ -21,7 +21,7 @@ module Hanzel
     module HelperMethods
       def hanzel_crumbs
         trail = @_breadcrumb ||= []
-        action = @_breadcrumb
+        action = params[:action]
 
         if remove_action_crumb
           trail.pop
