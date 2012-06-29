@@ -1,0 +1,161 @@
+#static paths that do not contain dynamic elements based on database objects
+#can set options for :linkable,:link,:name,:path
+ignore:
+  - dynamic_ivr_prompts
+  - user_sessions
+  - login
+  - logout
+  - errors
+
+entry_groups:
+  linkable: true
+frontend_numbers:
+  link:
+    action: index
+  name: Browse
+profile:
+  linkable: false
+time_segment:
+  linkable: false
+routing:
+  linkable: false
+  name: Percent Allocation
+routing_destination:
+  linkable: false
+  name: Assign Destination
+
+destinations:
+  link:
+    controller: manage_destinations
+browse:
+  path: destinations
+dlis:
+  path: destinations
+  name: Mega-Trunks
+
+company_info:
+  linkable: false
+company_survey_settings:
+  linkable: false
+company_recording_settings:
+  linkable: false
+company_reporting_settings:
+  linkable: false
+company_cc_ivr_settings:
+  linkable: false
+company_queuing_settings:
+  linkable: false
+company_display_settings:
+  linkable: false
+company_security:
+  linkable: false
+company_system_info:
+  linkable: false
+cache_url_settings:
+  linkable: false
+
+preroute_edits:
+  name: Pre-Routes
+cc_ivrs:
+  name: CC IVRs
+
+manage_prompts:
+  name: Prompt Management
+media_files:
+  path: manage_prompts
+  name: Network Prompts
+manage_app_prompts:
+  name: Application Prompts
+  path: manage_prompts
+caller_types:
+  name: Prompt Assignments
+  path: manage_app_prompts.manage_prompts
+prompts:
+  path: manage_app_prompts.manage_prompts
+upload_recordings:
+  linkable: false
+  name: Upload File
+  path: manage_app_prompts.manage_prompts
+
+admins:
+  name: Admin
+users:
+  path: admins
+  name: Manage Users
+bulk_import:
+  path: admins
+admin_management_tables:
+  path: admin_management_tables.admins
+  name: Manage Racc DB Tables
+audit_log:
+  path: admins
+  link:
+    action: search
+audit_trails:
+  link:
+    action: search
+  name: Audits
+  path: admins
+additional_call_routings:
+  path: admin_management_tables.admins
+operations:
+  path: admin_management_tables.admins
+racc_ctis: 
+  name: CTI Definitions
+  path: admin_management_tables.admins
+cti_routines:
+  name: CTI Routines
+  path: admin_management_tables.admins
+racc_genesys_ctis:
+  name :Genesys CTS:
+  path: admin_management_tables.admins
+racc_dsts:
+  name: DSTs
+  path: admin_management_tables.admins
+racc_post_calls:
+  name : Post Calls
+  path: admin_management_tables.admins
+destination_properties:
+  path: admin_management_tables.admins
+  name: Destination Properties
+destination_validation_formats:
+  name: Destination Validations
+  path: admin_management_tables.admins
+
+preroute_groups:
+  path: additional_call_routings.admins
+  name: Pre-Route Groups
+preroute_edit_configs:
+  path: additional_call_routings.admins
+  name: Pre-Route Config
+  link:
+    action: edit
+    id: 1
+geo_route_groups:
+  path: additional_call_routings.admins
+ani_groups:
+  path: additional_call_routings.admins
+groups:
+  path: additional_call_routings.admins
+
+preroute_groupings:
+  path: preroute_edit_configs.additional_call_routings.admins
+  name: Pre-Route Groupings
+
+recorded_dnis:
+  name: Recorded Rules
+
+manage_queueing_trial:
+  name: Queuing
+queue_trial_configurations:
+  name: Configurations
+  path: manage_queueing_trial
+queue_trial_stats:
+  name: Statistics
+  path: manage_queueing_trial
+
+survey_groups:
+  path: additional_call_routings.admins
+
+speed_dials:
+  path: entry_groups

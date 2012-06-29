@@ -1,0 +1,163 @@
+# selector attributes for defined trails
+# options include :static,:url_path,:selector,:obj_name,:linkable
+selectors:
+  root_destination:
+    static: destinations
+  root_caller_type:
+    static: caller_types
+  root_dli:
+    static: dlis
+  root_speed_dial:
+    static: speed_dials
+  root_cc_ivr:
+    static: cc_ivrs
+  root: 
+    static: entry_groups
+  category:
+    selector: category_for_display
+    obj_name: group
+  group:
+    url_path: entry_group
+    selector: display_name
+  frontend_group:
+    obj_name: group
+    selector: name_for_display
+  frontend_number:
+    static: frontend_numbers
+  vlabel:
+    obj_name: backend_number
+    method: vlabel_map
+    selector: vlabel
+  package:
+    selector: name
+  profile:
+    static: profile
+  routing:
+    static: routing
+  time_segment:
+    static: time_segment
+  routing_destination:
+    static: routing_destination
+  destination:
+    selector: destination
+  caller_type:
+    obj_name: business_unit
+    selector: name
+  prompt_set:
+    selector: name
+  dli:
+    linkable: false
+    selector: value
+  speed_dial:
+    linkable: false
+    obj_name: transfer_map
+    selector: transfer_string
+  cc_ivr:
+    obj_name: divr
+    selector: name
+# trails are defined here if they require dynamic elements
+# they are cmposed of selectors above
+trail:
+  entry_groups:
+    action: show
+    selectors: 
+      - root
+      - category
+      - group
+  vlabels:
+    action: show
+    selectors: 
+      - root
+      - category
+      - group
+      - vlabel
+  packages: 
+    action: show
+    selectors: 
+      - root
+      - category
+      - group
+      - vlabel
+      - package
+  frontend_groups:
+    actions: show
+    selectors:
+      - root
+      - category
+      - frontend_group
+  frontend_numbers:
+    actions: 
+      - index
+      - new
+    selectors:
+      - root
+      - category
+      - group
+      - frontend_number
+  profiles:
+    selectors:
+      - root
+      - category
+      - group
+      - vlabel
+      - package
+      - profile
+  routings:
+      selectors:
+        - root
+        - category
+        - group
+        - vlabel
+        - routing
+  time_segments:
+      selectors:
+        - root
+        - category
+        - group
+        - vlabel
+        - package
+        - time_segment
+  routing_destinations:
+      selectors:
+        - root
+        - category
+        - group
+        - vlabel
+        - package
+        - routing_destination
+  destinations:
+      actions: 
+        - edit
+        - show
+      selectors:
+        - root_destination 
+        - destination
+  caller_types:
+      actions:
+        - edit
+        - show
+      selectors:
+        - root_caller_type
+        - caller_type
+  prompt_sets:
+      selectors:
+        - root_caller_type
+        - caller_type
+        - prompt_set
+  dlis:
+      actions:
+        - edit
+      selectors:
+        - root_dli
+        - dli
+  speed_dials:
+      actions:
+        - edit
+      selectors:
+        - root_speed_dial
+        - speed_dial
+  cc_ivrs:
+      actions: show
+      selectors:
+        - root_cc_ivr
+        - cc_ivr
